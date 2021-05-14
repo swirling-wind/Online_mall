@@ -31,7 +31,8 @@ a{
 	color: #999999;
 }
 a:hover{
-	color: #c40000;
+	color: #4169e1;
+	/*color: #c40000;*/
 }
 ul,li{
 	float: left;
@@ -92,7 +93,9 @@ li.libg{
 	padding-bottom: 1px!important;
 }
 .top-i-color{
-	color: red;
+	color: #4169e1
+	/*color: red;*/
+
 }
 .drop-down{
 	display: none;
@@ -143,12 +146,16 @@ div.user-center-list a{
 }
 .mall-logo{
 	top: 0px;
-	left: 36px;
+	/*left: 36px;*/
+	margin: 0 auto;
+
 	width: 300px;
 	height: 120px;
 	position: absolute;
 	background-repeat: no-repeat;
-	background-image: url(../img/mall-logo2.png);
+	background-image: url(../img/d_mall_logo2.png);
+	background-size: 300px;
+	/*background-image: url(../img/mall-logo2.png);*/
 }
 .mall-search{
 	width: 625px;
@@ -160,7 +167,8 @@ div.user-center-list a{
 	height: auto;
 	position: relative;
 	border-style:  solid;
-	border-color: #c40000;  
+	border-color: #4169e1;
+	/*border-color: #c40000;*/
 	border-width :  2px 0px 2px 2px;
 }
 .mall-search form label{
@@ -194,7 +202,8 @@ div.user-center-list a{
 	font-size: 18px;
 	font-weight: 700;
 	letter-spacing: 5px;
-	background-color: #c40000;
+	background-color: #4169e1;
+	/*background-color: #c40000;*/
 }
 
 /*搜索框样式 logo样式 e */
@@ -205,14 +214,16 @@ div.user-center-list a{
 .content{
 	height:36px;
 	min-width: 1260px;
-	background-color: #dd2727;
+	background-color: #4169e1;
+	/*background-color: #dd2727;*/
 }
 .mall-content{
 	z-index: 1;
 	width: 1230px;
 	padding-left: 215px;
 	box-sizing: border-box;
-	background-color: #dd2727;
+	background-color: #4169e1;
+	/*background-color: #dd2727;*/
 }
 .mall-content li a{
 	float: left;
@@ -246,7 +257,7 @@ div.user-center-list a{
 	transform: translate(-20px,-5px);
 	background-size:  40px 15px;
     background-repeat: no-repeat;
-	background-image: url(../img/red-cat.png);
+	background-image: url(../img/d_icon.png);
 }
 .all-sort-list{
 	top: 0px;
@@ -259,7 +270,8 @@ div.user-center-list a{
 .all-sort-list>dt{
 	height: 36px;
 	position: relative;/*cedh本身设定了绝对定位 又不能设置dd相对定位 只能给它了*/
-	background-color: #C60A0A;
+	background-color: #4169e1;
+	/*background-color: #C60A0A;*/
 }
 .all-sort-list>dt i{
 	width: 16px;
@@ -417,7 +429,8 @@ div.user-center-list a{
 }
 .recommend-goods h2 span.recommend-text i{
 	font-size: 20px;
-	color: #DD2727;
+	color: #4169e1;
+	/*color: #DD2727;*/
 }
 .recommend-goods h2 span.recommend-text:before{
 	left: -38px;
@@ -467,7 +480,8 @@ div.user-center-list a{
 }
 .goods-items ul li.goods-item:hover .item-border{
 	/*outline: #DD2727 solid 1px;*/
-	border: 1px solid red;
+	border: 1px solid #4169e1;
+	/*border: 1px solid red;*/
 }
 li.goods-item a:hover .item-img{
 	opacity: .7;
@@ -515,16 +529,19 @@ li.goods-item a .item-text div{
 	line-height: 32px;
 }
 li.goods-item a .item-text div i{
-	color: red;
+	color: #4169e1;
+	/*color: red;*/
 	font-size: 16px;
 	font-style: normal;
 }
 li.goods-item a .item-text div span{
-	color: red;
+	color: #4169e1;
+	/*color: red;*/
 	font-size: 16px;
 }
 li.goods-item a .item-text div em{
-	color: red;
+	color: #4169e1;
+	/*color: red;*/
 	font-size: 14px;
 }
 .content-end{
@@ -555,7 +572,7 @@ li.goods-item a .item-text div em{
 	height: 100px;
 	margin: 25px auto;
 	background-repeat: no-repeat;
-	background-image: url(../img/footer-img1.jpg);
+	/*background-image: url(../img/footer-img1.jpg);*/
 }
 .footer-1 a{
 	float: left;
@@ -602,7 +619,8 @@ li.goods-item a .item-text div em{
 	text-align: left;
 	min-height: 177px;
 	background: #000000;
-	border-top: 2px solid #C40000;
+	border-top: 2px solid #4169e1;
+	/*border-top: 2px solid #C40000;*/
 }
 .footer-3-p{
 	width: 1190px;

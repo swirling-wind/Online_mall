@@ -150,7 +150,8 @@
 
 .goods_price01_panel > dd > em {
     font-style: normal;
-    color: #c40000;
+    color: #4169e1;
+    /*color: #c40000;*/
     font-size: 18px;
     font-family: Arial, serif;
 }
@@ -158,7 +159,8 @@
 .goods_price01_panel > dd > span {
     font-style: normal;
     font-size: 30px;
-    color: #c40000;
+    color: #4169e1;
+    /*color: #c40000;*/
     font-weight: bolder;
     font-family: Arial, serif;
 }
@@ -191,7 +193,8 @@
 .goods_count_info > li > span {
     font-family: tohoma, Arial, serif;
     display: inline-block;
-    color: #c40000;
+    color: #4169e1;
+    /*color: #c40000;*/
     font-weight: 700;
     margin-left: 3px;
 }
@@ -296,9 +299,11 @@
 
 .buy {
     width: 178px;
-    background-color: #ffeded;
-    border: 1px solid #c40000;
-    color: #c40000;
+    background-color: #f6f6f6;
+    border: 1px solid #4169e1;
+    /*border: 1px solid #c40000;*/
+    color: #4169e1;
+    /*color: #c40000;*/
     font-family: "Microsoft YaHei UI", serif;
     height: 38px;
     line-height: 38px;
@@ -307,8 +312,10 @@
 
 .car {
     width: 178px;
-    background-color: #c40000;
-    border: 1px solid #c40000;
+    background-color: #4169e1;
+    /*background-color: #c40000;*/
+    border: 1px solid #4169e1;
+    /*border: 1px solid #c40000;*/
     color: #ffffff;
     font-family: "Microsoft YaHei UI", serif;
     height: 38px;
@@ -389,7 +396,8 @@
 
 .detail_box .tab-selected {
     position: relative;
-    border-top: 2px solid #c40000;
+    border-top: 2px solid #4169e1;
+    /*border-top: 2px solid #c40000;*/
     height: 47px;
     margin: -1px 0 0 -1px;
     z-index: 1;
@@ -400,7 +408,8 @@
     content: ' ';
     display: block;
     border: 5px solid transparent;
-    border-top-color: #c40000;
+    border-top-color: #4169e1;
+    /*border-top-color: #c40000;*/
     width: 0;
     height: 0;
     font-family: Arial, serif;
@@ -413,7 +422,8 @@
 .detail_box .tab-selected > a {
     font-weight: 700;
     line-height: 46px;
-    color: #c40000;
+    color: #4169e1;
+    /*color: #c40000;*/
     border-left: 1px solid #cfbfb1;
     border-right: 1px solid #cfbfb1;
 }
