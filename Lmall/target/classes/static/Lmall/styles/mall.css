@@ -533,7 +533,7 @@ li.goods-item a .item-text div em{
 	text-align: center;
 	margin: 0px auto 10px;
 	background-size: cover;
-	background-image: url(../img/end.png);
+	/*background-image: url(../img/blank.png);*/
 }
 
 .both{
@@ -548,6 +548,8 @@ li.goods-item a .item-text div em{
 	min-height: 558px;
 	border-top: 1px solid #D1D7DC;
 }
+
+/*网页倒数第三层（也是商品信息的结尾）*/
 .footer-1{
 	width: 1190px;
 	height: 100px;
@@ -561,6 +563,7 @@ li.goods-item a .item-text div em{
 	height: 100px;
 	display: block;
 }
+/*网页倒数第二层*/
 .footer-2{
 	width: 1190px;
 	height: 190px;
@@ -569,7 +572,7 @@ li.goods-item a .item-text div em{
 	border-top: 1px solid #dedede;
 	background-repeat: no-repeat;
 	background-position: 45px 162px;
-	background-image: url(../img/cat.png);
+	/*background-image: url(../img/blank.png);*/
 }
 .footer-2 dl{
 	float: left;
@@ -593,6 +596,8 @@ li.goods-item a .item-text div em{
 .footer-2 dl:last-of-type dd a{
 	height: auto;
 }
+
+/*网页最底层*/
 .footer-3{
 	text-align: left;
 	min-height: 177px;
