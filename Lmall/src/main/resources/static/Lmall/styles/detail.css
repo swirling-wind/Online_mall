@@ -1,0 +1,464 @@
+.goods-context {
+    width: 1190px;
+    height: 520px;
+    margin: 20px auto;
+
+}
+
+.goods-context > .context_left {
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.context_left > .context_img {
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.context_img > .context_img_main {
+    width: 418px;
+    height: 418px;
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.goods-context > .goods_info {
+    float: left;
+    height: 100%;
+}
+
+.goods_info > .goods_info_name_div {
+    padding: 20px 10px 12px;
+    color: #000000;
+}
+
+.goods_info_name_div > .goods_title {
+    width: 510px;
+    padding-bottom: .3em;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Microsoft YaHei UI", serif;
+    margin: 0;
+}
+
+.goods_info_name_div > .goods_intro {
+    display: block;
+    width: 510px;
+    font-size: 14px;
+    color: #c40000;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.goods_info > .goods_info_main {
+    background: #e9e9e9 url(../img/detail-bg.png) no-repeat;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-right: 20px;
+}
+
+.goods_info_main > .detail_ticket {
+    position: relative;
+    height: 35px;
+    margin: 0 10px 0 8px;
+}
+
+.detail_ticket > img {
+    float: left;
+    display: inline-block;
+    margin: 10px 5px 0 0;
+}
+
+.detail_ticket > span {
+    font: 400 12px/35px "Microsoft YaHei UI", tahoma, arial;
+    color: #666;
+}
+
+.detail_ticket > a {
+    float: right;
+    font: normal 12px/35px "Microsoft YaHei UI", tahoma, arial;
+    display: inline-block;
+    color: #ff0036;
+    cursor: pointer;
+}
+
+.detail_ticket > a > img {
+    position: relative;
+    bottom: 1px;
+    padding-left: 5px;
+}
+
+.goods_price_panel {
+    margin: 0;
+}
+
+.goods_price_panel > dt {
+    font-family: "Microsoft YaHei UI", serif;
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    width: 69px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 8px;
+}
+
+.goods_price_panel > dd {
+    margin-left: 70px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.goods_price_panel > dd > em {
+    font-family: Arial, serif;
+    font-style: normal;
+}
+
+.goods_price_panel > dd > span {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #333333;
+    font-family: Arial, serif;
+}
+
+.goods_price01_panel {
+    margin: 0;
+}
+
+.goods_price01_panel > dt {
+    font-family: "Microsoft YaHei UI", serif;
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    width: 69px;
+    margin-left: 8px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.goods_price01_panel > dd {
+    margin-left: 70px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.goods_price01_panel > dd > em {
+    font-style: normal;
+    color: #c40000;
+    font-size: 18px;
+    font-family: Arial, serif;
+}
+
+.goods_price01_panel > dd > span {
+    font-style: normal;
+    font-size: 30px;
+    color: #c40000;
+    font-weight: bolder;
+    font-family: Arial, serif;
+}
+
+.goods_count_info {
+    border: dotted #c9c9c9;
+    border-width: 1px 0;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    margin-right: 20px;
+    padding: 10px 0;
+    position: relative;
+    width: 510px;
+}
+
+.goods_count_info > li {
+    font-family: "Microsoft YaHei UI", serif;
+    color: #999;
+    font-size: 12px;
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    line-height: 16px;
+}
+
+.goods_count_info > li + li {
+    border-left: 1px solid #e5dfda;
+}
+
+.goods_count_info > li > span {
+    font-family: tohoma, Arial, serif;
+    display: inline-block;
+    color: #c40000;
+    font-weight: 700;
+    margin-left: 3px;
+}
+
+.goods_count_info > .mall_points > span {
+    color: #280;
+}
+
+.number_info {
+    margin-top: 65px;
+    margin-bottom: 12px;
+    margin-right: 20px;
+    padding: 10px 0;
+    position: relative;
+    width: 510px;
+}
+
+.number_info > dt {
+    font-family: "Microsoft YaHei UI", serif;
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    width: 69px;
+    margin-left: 8px;
+    height: 31px;
+    line-height: 31px;
+}
+
+.number_info > dd {
+    height: 31px;
+    line-height: 31px;
+}
+
+.number_info > dd > input {
+    padding: 3px 2px 0 2px;
+    font-size: 12px;
+    font-family: Arial, serif;
+    border: 1px solid #a7a6ac;
+    width: 36px;
+    height: 26px;
+    color: #666;
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    outline: none;
+}
+
+.amount_btn {
+    float: left;
+    display: inline-block;
+    width: 18px;
+}
+
+.amount_btn > img {
+    cursor: pointer;
+    float: left;
+}
+
+.amount_btn > img + img {
+    margin-top: 3px;
+}
+
+.amount_unit {
+    font-family: "Microsoft YaHei UI", serif;
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    margin-left: 10px;
+}
+
+.number_info em {
+    font-style: normal;
+    font-family: "Microsoft YaHei UI", serif;
+    margin-left: 20px;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+}
+
+.context_buy_form {
+    display: inline-block;
+}
+
+.context_cart_form {
+    display: inline-block;
+}
+
+.context_buy {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.context_buy input {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.buy {
+    width: 178px;
+    background-color: #ffeded;
+    border: 1px solid #c40000;
+    color: #c40000;
+    font-family: "Microsoft YaHei UI", serif;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+}
+
+.car {
+    width: 178px;
+    background-color: #c40000;
+    border: 1px solid #c40000;
+    color: #ffffff;
+    font-family: "Microsoft YaHei UI", serif;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+}
+
+.context_clear {
+    width: 490px;
+    margin: 0 20px;
+    margin-top: 50px;
+}
+
+.context_clear > span {
+    display: inline-block;
+    font-family: "Microsoft YaHei UI", serif;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.context_clear > a {
+    display: inline-block;
+    font-family: "Microsoft YaHei UI", serif;
+    color: #666;
+    font-size: 12px;
+    text-align: left;
+    padding-right: 30px;
+    padding-bottom: 3px;
+}
+
+.context_clear > a:hover {
+    text-decoration: none;
+}
+
+.goods_detail_panel {
+    width: 790px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.goods_detail_panel > .detail_box {
+    width: 788px;
+    border: 1px solid #dfdfdf;
+    z-index: 9999;
+}
+
+.detail_box > ul {
+    width: 100%;
+    height: 48px;
+    position: relative;
+    background: #ffffff;
+    margin: 0;
+}
+
+.detail_box li {
+    float: left;
+    line-height: 48px;
+    display: block;
+    cursor: pointer;
+    margin-left: 1px;
+    height: 48px;
+}
+
+.detail_box a {
+    display: block;
+    height: 100%;
+    font-size: 10px;
+    font-family: "Microsoft YaHei UI", serif;
+    padding: 0 20px;
+    color: #333333;
+}
+
+.detail_box a:hover {
+    text-decoration: none;
+}
+
+.detail_box .tab-selected {
+    position: relative;
+    border-top: 2px solid #c40000;
+    height: 47px;
+    margin: -1px 0 0 -1px;
+    z-index: 1;
+    padding: 0;
+}
+
+.detail_box .tab-selected:after {
+    content: ' ';
+    display: block;
+    border: 5px solid transparent;
+    border-top-color: #c40000;
+    width: 0;
+    height: 0;
+    font-family: Arial, serif;
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    margin-left: -5px;
+}
+
+.detail_box .tab-selected > a {
+    font-weight: 700;
+    line-height: 46px;
+    color: #c40000;
+    border-left: 1px solid #cfbfb1;
+    border-right: 1px solid #cfbfb1;
+}
+
+.detail_box .comment span {
+    font-family: "Microsoft YaHei UI", serif;
+    display: inline;
+    margin: 0 5px;
+    color: #38b;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.detail_content_div {
+    width: 790px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+
+.goods_content_main {
+    width: 100%;
+    display: block;
+}
+
+.goods_content_main > .goods_title {
+    margin-bottom: 10px;
+    border-top: none;
+}
+
+.goods_title > .goods_title_span {
+    display: block;
+    padding: 8px 20px 10px;
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+    margin: 0;
+    font-family: "Microsoft YaHei UI", serif;
+    font-size: 10px;
+}
+
+.goods_title_span > span {
+    color: #333333;
+    font-family: "Microsoft YaHei UI", serif;
+}

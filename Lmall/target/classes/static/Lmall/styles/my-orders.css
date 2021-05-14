@@ -1,0 +1,230 @@
+.orders_content {
+    width: 1230px;
+    margin: auto;
+    min-height: 400px;
+    padding-bottom: 60px;
+    color: #666;
+}
+
+.orders_content > .tabs_ul {
+    margin: 22px 0;
+    font-size: 0;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+
+.orders_content > #empty {
+    padding: 160px 0 100px 156px;
+    background: url(../img/empty-order.png) no-repeat 10px 114px;
+    position: relative;
+}
+
+.orders_content > #empty > h2 {
+    font: 700 14px/20px Arial;
+    color: #000000;
+}
+
+.orders_content > #empty li {
+    font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+    margin-top: 12px;
+    color: #000;
+}
+
+.orders_content > #empty a {
+    font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+    color: #36c;
+    margin-left: 3px;
+}
+
+.tabs_ul > li {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.tabs_ul > li > a {
+    display: inline-block;
+    padding: 0 20px 12px;
+    color: #333333;
+}
+
+.tabs_ul > li > a:hover {
+    text-decoration: none;
+    color: #c40000;
+}
+
+.tabs_ul > li.all_order {
+    border-bottom: 2px solid #c40000;
+}
+
+.tabs_ul > li.all_order > a {
+    color: #c40000;
+}
+
+.orders_content > .order_list {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #3c3c3c;
+    table-layout: fixed;
+    font: 12px/1.5 'Microsoft YaHei UI', Arial, "Hiragino Sans GB";
+}
+
+.order_list > thead {
+    background-color: #f5f5f5;
+    border: 1px solid #e8e8e8;
+}
+
+.order_list > thead th {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+.order_list > tbody td {
+    text-align: center;
+}
+
+.order_list > tbody tr.tr_order_info {
+    background: #f1f1f1;
+    border: 1px solid #ececec;
+}
+
+.order_list > tbody tr.tr_order_info > td {
+    text-align: left;
+    padding: 11px 0;
+}
+
+tr.tr_order_info > td > span.span_pay_date {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.order_list > tbody tr.order_items_info {
+    border: 1px solid #ececec;
+}
+
+.order_list > tbody tr.order_items_info > td {
+    padding: 18px 0;
+}
+
+.order_list > tbody tr.order_items_info > td + td {
+    border-left: 1px solid #ececec;
+}
+
+.order_list > tbody tr.order_items_info > td:first-child {
+    text-align: left;
+}
+
+.order_list > tbody tr.order_items_info > td.td_order_content {
+    vertical-align: top;
+}
+
+tr.order_items_info > td > img.goods_img {
+    margin: 0 20px;
+}
+
+tr.order_items_info > td > span.goods_name > a {
+    color: #3c3c3c;
+}
+
+tr.order_items_info > td > span.goods_name > a:hover {
+    text-decoration: none;
+    color: #c40000;
+}
+
+tr.order_items_info > td > span.goods_price {
+    font-family: verdana, serif;
+}
+
+tr.order_items_info > td > span.goods_count {
+    font-family: verdana, serif;
+}
+
+tr.order_items_info > td > span.goods_price {
+    font-family: verdana, serif;
+    font-weight: bolder;
+}
+
+tr.order_items_info > td > span.span_order_status {
+    font-size: 16px;
+    color: #c40000;
+}
+
+tr.order_items_info > td > a.order_btn {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #c40000;
+    color: #fff;
+    border-color: #c40000;
+    font-weight: bolder;
+}
+
+tr.order_items_info > td > a.order_btn:hover {
+    text-decoration: none;
+}
+
+tr.order_items_info > td > p.order_close {
+    margin-top: 8px;
+}
+
+tr.order_items_info > td > p.order_close > a {
+    color: #3c3c3c;
+    cursor: pointer;
+}
+
+tr.order_items_info > td > p.order_close > a:hover {
+    text-decoration: none;
+    color: #c40000;
+}
+
+.lmall-pagenavi {
+    height: 30px;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.lmall-pagenavi .numbers {
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    width: 48px;
+    height: 24px;
+    padding: 3px 0;
+    margin: 0 7px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 24px;
+    color: #b0b0b0;
+}
+
+.lmall-pagenavi .iconfont {
+    font-size: 24px;
+    vertical-align: bottom;
+}
+
+.lmall-pagenavi .current {
+    background-color: #757575;
+    color: #fff;
+}
+
+.lmall-pagenavi a.numbers {
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+}
+
+.lmall-pagenavi a.numbers:hover {
+    background: #b0b0b0;
+    color: #fff
+}

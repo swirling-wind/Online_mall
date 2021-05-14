@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Lmall/header::head-fragment('楼楼商城-订单结算','order-settle')">
+</head>
+<body>
+<div th:replace="Lmall/header::header-fragment"></div>
+<div th:replace="Lmall/header::search-fragment"></div>
+
+<div id="title">
+    <p>确认订单页面</p>
+</div>
+
+<div id="address">
+    <p>收货地址</p>
+    <ul>
+        <li>
+            <input type="hidden" id="userId" th:value="${session.mallUser.userId}">
+            <textarea style="width: 264px;height: 74px;position: absolute;border: none;" id="userAddress"><th:block
+                    th:text="${session.mallUser.address==''?'无':session.mallUser.address}"></th:block></textarea>
+        </li>
+    </ul>
+    <a onclick="updateAddress()">修改地址</a>
+</div>
+
+<div id="settle">
+    <p>订单信息</p>
+    <ul>
+        <li>&nbsp;</li>
+        <li>商品信息</li>
+        <li>单价</li>
+        <li>数量</li>
+        <li>优惠</li>
+        <li>小计</li>
+    </ul>
+    <div id="goods_items">
+        <th:block th:each="item : ${cartItems}">
+
+            <div class="item">
+                <ul>
+                    <li></li>
+                    <li>
+                        <div><img th:src="@{${item.goodsCoverImg}}" width="80px" height="80px">
+                            <div></div>
+                        </div>
+                        <a th:href="@{'/goods/detail/'+${item.goodsId}}"
+                           th:text="${item.goodsName}">Lmall</a>
+                        <p>
+                            <img th:src="@{/Lmall/img/icon-zp.png}" width="16px" height="16px" title="卖家承诺真百分百真品">
+                            <img th:src="@{/Lmall/img/icon-7.png}" width="16px" height="16px" title="卖家承诺七天退换">
+                            <img th:src="@{/Lmall/img/icon-bz.png}" width="16px" height="16px" title="卖家承诺如实描述">
+                        </p>
+                    </li>
+                    <li>
+                        <span th:text="${'￥'+item.sellingPrice}">￥199</span>
+                    </li>
+                    <li th:text="${item.goodsCount}">
+                        1
+                    </li>
+                    <li>
+                        楼楼商城，不止五折
+                    </li>
+                    <li th:text="${'￥'+item.sellingPrice * item.goodsCount}">
+                        999
+                    </li>
+                </ul>
+            </div>
+        </th:block>
+
+        <div id="express_info">
+            <p>运送方式：&nbsp;普通配送 运费： 0 元</p>
+            <p th:text="${'实付款：￥'+priceTotal}">实付款：￥999</p>
+        </div>
+    </div>
+    <div id="submmit-btn">
+        <input type="hidden" id="cartItemIds" th:value="${cartItemIds}">
+        <a href="javascript:saveOrder()">提交订单</a>
+    </div>
+</div>
+
+<!-- 底部导航栏 -->
+<div th:replace="Lmall/footer::footer-fragment"></div>
+</body>
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script type="text/javascript">
+    function saveOrder() {
+        var userAddress = $("#userAddress").val();
+        var cartItemIds = $("#cartItemIds").val();
+        if (userAddress == '' || userAddress == '无') {
+            swal("请填写收货信息", {
+                icon: "error",
+            });
+            return;
+        }
+        if (userAddress.trim().length < 10) {
+            swal("请输入正确的收货信息", {
+                icon: "error",
+            });
+            return;
+        }
+        $.ajax({
+            type: 'POST',//方法类型
+            url: '/saveOrder?cartItemIds=' + cartItemIds,
+            contentType: 'application/json',
+            data: null,
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    swal('订单提交成功', {
+                        icon: "success",
+                    });
+
+                    swal({
+                        title: "订单提交成功",
+                        icon: "success",
+                        buttons: {
+                            cancel: "继续购物",
+                            confirm: "去支付"
+                        },
+                        dangerMode: false,
+                    }).then((flag) => {
+                            if (flag) {
+                                window.location.href = '/selectPayType?orderNo=' + result.data;
+                            } else {
+                                window.location.href = '/index';
+                            }
+                        }
+                    );
+                } else {
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+                ;
+            },
+            error: function () {
+                swal('操作失败', {
+                    icon: "error",
+                });
+            }
+        });
+    }
+
+    function updateAddress() {
+        var userAddress = $("#userAddress").val();
+        var userId = $("#userId").val();
+        var data = {
+            "userId": userId,
+            "address": userAddress
+        };
+        $.ajax({
+            type: 'POST',//方法类型
+            url: '/personal/updateInfo',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    swal('修改地址成功', {
+                        icon: "success",
+                    });
+                } else {
+                    $('#personalInfoModal').modal('hide');
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+                ;
+            },
+            error: function () {
+                swal('操作失败', {
+                    icon: "error",
+                });
+            }
+        });
+    }
+</script>
+</html>

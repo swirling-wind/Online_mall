@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/Lmall/css/iconfont.css}">
+    <link rel="stylesheet" th:href="@{/Lmall/styles/login.css}">
+    <link rel="shortcut icon" th:href="@{/Lmall/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/Lmall/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/admin/plugins/sweetalert/sweetalert.css}"/>
+    <script th:src="@{/Lmall/js/jquery-2.1.0.js}" type="text/javascript" charset="utf-8"></script>
+    <title>楼楼商城-注册</title>
+</head>
+<body>
+<nav class="logo">
+    <a th:href="@{/index}" target="_self">
+        <img th:src="@{/Lmall/img/mall-logo2.png}">
+    </a>
+</nav>
+<div class="content">
+    <div class="content-main"></div>
+    <div class="login-panel">
+        <div class="login-main" style="display:block;">
+            <span class="title">注册</span>
+            <form method="post" id="registerForm" onsubmit="return false;" action="##">
+                <div class="login-info">
+                    <label for="loginName" class="label"><img
+                            th:src="@{/Lmall/img/login-user.png}" width="38px" height="39px"
+                            title="手机号"></label>
+                    <input type="text" name="loginName" id="loginName" class="login-input" placeholder="请输入手机号">
+                </div>
+                <div class="login-info">
+                    <label for="password" class="label"><img
+                            th:src="@{/Lmall/img/login-password.png}" width="38px" height="39px"
+                            title="登录密码"></label>
+                    <input type="password" name="password" id="password" class="login-input" placeholder="请输入密码">
+                </div>
+                <input type="submit" class="submit-button" onclick="register()" value="注 册">
+            </form>
+            <div class="links">
+                <a th:href="@{/login}" target="_self">已注册 直接登陆</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{/admin/dist/js/public.js}"></script>
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script type="text/javascript">
+    //注册
+    function register() {
+        var loginName = $("#loginName").val();
+        if (!validPhoneNumber(loginName)) {
+            swal('请输入正确的登录名(即手机号)', {
+                icon: "error",
+            });
+            return false;
+        }
+        var password = $("#password").val();
+        if (!validPassword(password)) {
+            swal('请输入正确的密码格式(6-20位字符和数字组合)', {
+                icon: "error",
+            });
+            return false;
+        }
+        //验证
+        var params = $("#registerForm").serialize();
+        var url = '/register';
+        $.ajax({
+            type: 'POST',//方法类型
+            url: url,
+            data: params,
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    swal({
+                        title: "注册成功",
+                        text: "是否跳转至登录页?",
+                        icon: "success",
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((flag) => {
+                            if (flag) {
+                                window.location.href = '/login';
+                            }
+                        }
+                    )
+                    ;
+                } else {
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+                ;
+            },
+            error: function () {
+                swal("操作失败", {
+                    icon: "error",
+                });
+            }
+        });
+    }
+</script>
+</html>

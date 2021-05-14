@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Lmall/header::head-fragment('楼楼商城-购物车','cart')">
+</head>
+<body>
+<div th:replace="Lmall/header::header-fragment"></div>
+<div th:replace="Lmall/header::search-fragment"></div>
+
+<div class="cart_content">
+    <th:block th:if="${#lists.isEmpty(myShoppingCartItems)}">
+        <div id="empty">
+            <h2>购物车还是空的，快快行动吧！</h2>
+            <ul>
+                <li>继续<a th:href="@{/index}">购物</a></li>
+                <br/>
+                <li>看看<a th:href="@{/orders}">已买到的宝贝</a></li>
+            </ul>
+        </div>
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(myShoppingCartItems)}">
+        <div id="top_bar">
+            <ul id="bar">
+                <li>
+                    <a href="##">
+                        <em>全部商品</em>
+                        <span class="number" th:text="${itemSize}">10</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="wrap-line">
+                <div class="floater"></div>
+            </div>
+        </div>
+        <table id="cart_items_main">
+            <thead>
+            <tr>
+                <th class="select_all">选择</th>
+                <th width="474px" class="goods_info_th"><span>商品信息</span></th>
+                <th width="146px"><span>单价</span></th>
+                <th width="190px"><span>数量</span></th>
+                <th width="186px"><span>小计</span></th>
+                <th width="84px"><span>操作</span></th>
+                <th hidden="">itemId</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="item : ${myShoppingCartItems}">
+                <tr class="cart_item">
+                    <td class="tbody_checkbox"><input type="checkbox" class="cbx_select"
+                                                      th:id="${'item'+item.cartItemId}"
+                                                      name="orderItem_id">
+                        <label th:for="${'item'+item.cartItemId}" id="goodsCount"></label>
+                    </td>
+                    <td><img class="orderItem_product_image"
+                             th:src="@{${item.goodsCoverImg}}"
+                             style="width: 80px;height: 80px;"><span class="goods_name"><a
+                            href="##" th:text="${item.goodsName}">Lmall</a></span>
+                    </td>
+                    <td><span class="goods_selling_price" th:text="${'￥'+item.sellingPrice}">99</span>
+                    </td>
+                    <td>
+                        <div class="item_amount">
+                            <a href="javascript:void(0)" onclick="itemDecrease(this)"
+                               th:class="${item.goodsCount>1?'minus_btn':'minus_btn no_minus'}"
+                               class="minus_btn no_minus">-</a>
+                            <label th:text="${item.goodsCount}"></label>
+                            <a href="javascript:void(0)" onclick="itemIncrease(this)"
+                               th:class="${item.goodsCount<10?'plus_btn':'plus_btn no_minus'}"
+                               class="plus_btn">+</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="goods_summary_price"
+                              th:text="${'￥'+item.goodsCount*item.sellingPrice}">￥99.0</span>
+                    </td>
+                    <td><a href="javascript:void(0)" th:onclick="'deleteItem('+${item.cartItemId}+')'"
+                           class="remove_order">删除</a></td>
+                    <td>
+                        <input type="hidden" id="cartItemId" th:value="${item.cartItemId}">
+                    </td>
+                </tr>
+            </th:block>
+
+            </tbody>
+        </table>
+        <div id="operate_bar">
+            <div id="select_all_box">
+                <div class="cart_checkbox">
+                    <input id="select_all_cbx" type="checkbox" value="true">
+                    <label for="select_all_cbx" title="全选"></label>
+                </div>
+                <span>&nbsp;全选</span>
+            </div>
+            <div class="float-bar-right">
+                <div id="items_summary">
+                    <span class="txt">已选商品</span>
+                    <em id="item_size">0</em>
+                    <span class="txt">件</span>
+                </div>
+                <div class="price_sum">
+                    <span class="txt">合计（不含运费）:</span>
+                    <strong class="price">
+                        <em id="J_Total">
+                            <span class="total_symbol">&nbsp;  ￥</span>
+                            <span class="total_value">0.00</span>
+                        </em>
+                    </strong>
+                </div>
+                <div class="btn_area">
+                    <a href="javascript:void(0)" id="settleBtn" onclick="settle(this)" class="">
+                        <span>结&nbsp;算</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>
+
+<!-- 底部导航栏 -->
+<div th:replace="Lmall/footer::footer-fragment"></div>
+
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script th:src="@{/Lmall/js/cart.js}"></script>
+</body>
+</html>

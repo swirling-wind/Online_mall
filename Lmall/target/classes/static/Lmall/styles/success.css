@@ -1,0 +1,93 @@
+#success_content {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 10%;
+}
+
+#success {
+    height: 450px;
+    width: 90%;
+    border: 1px solid #f1f1f1;
+    background: url(../img/pay/pay-bg.png) 67px 316px no-repeat;
+    background-size: 25%;
+}
+
+#success > .p1 {
+    color: #000000;
+    text-align: left;
+    line-height: 50px;
+    height: 50px;
+    width: 100%;
+    background: rgb(207, 248, 192) url(../img/pay/check-done.png) 30px 2px no-repeat;
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 5em;
+}
+
+#success > .p2 ul {
+    list-style-type: none;
+    float: none;
+}
+
+#success > .p2 li {
+    list-style-type: initial;
+    float: none;
+}
+
+#success > .p2 {
+    text-align: left;
+    height: 150px;
+    width: 100%;
+    font-size: 14px;
+    color: #555;
+    box-sizing: border-box;
+    padding: 35px 100px;
+}
+
+#success > .p2 a, #success > .p3 a {
+    font-size: 14px;
+    color: #00BFFF;
+}
+
+#success > .p2 a:hover, #success > .p3 a:hover {
+    text-decoration: underline;
+}
+
+#success > .p2 span {
+    color: #c40000;
+    font-weight: bold;
+}
+
+#success > .p3 {
+    height: 100px;
+    width: 90%;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    margin-left: 50px;
+    text-align: left;
+    color: #222;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 22px 49px;
+    background: url(../img/pay/info.png) 0px 8px no-repeat;
+}
+
+#success > .p3 h5 {
+    display: inline;
+}
+
+#success > .p3 span {
+    color: #c40000;
+
+    font-weight: bold;
+}
+
+#success_content > img {
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    left: 130px;
+}

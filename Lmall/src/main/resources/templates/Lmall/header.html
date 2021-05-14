@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head-fragment(title,path)">
+    <meta charset="UTF-8">
+    <title th:text="${title}">楼楼商城</title>
+    <link rel="stylesheet" th:href="@{/Lmall/css/cssreset-min.css}">
+    <link rel="stylesheet" th:href="@{/Lmall/styles/mall.css}">
+    <link rel="stylesheet" th:href="@{/Lmall/css/iconfont.css}">
+    <link rel="stylesheet" th:href="@{'/Lmall/styles/'+${path}+'.css'}">
+    <link rel="shortcut icon" th:href="@{/Lmall/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/Lmall/favicon.ico}"/>
+    <script th:src="@{/Lmall/js/jquery-2.1.0.js}" type="text/javascript" charset="utf-8"></script>
+    <script th:src="@{/Lmall/js/header.js}" type="text/javascript" charset="utf-8"></script>
+    <script th:src="@{/Lmall/js/search.js}" type="text/javascript" charset="utf-8"></script>
+    <meta name="keywords"
+          content="楼楼商城,商城,开源商城,企业级商城,大型商城项目,Java商城,springboot商城,SpringBoot商城项目,Spring Boot 大型线上商城项目实战教程"/>
+    <meta name="description"
+          content="楼楼商城是一套电商系统，基于 Spring Boot 2.X 及相关技术栈开发。前台商城系统包含首页门户、商品分类、新品上线、首页轮播、商品推荐、商品搜索、商品展示、购物车、订单结算、订单流程、个人订单管理、会员中心、帮助中心等模块。后台管理系统包含数据面板、轮播图管理、商品管理、订单管理、会员管理、分类管理、设置等模块。Spring Boot 大型线上商城项目实战教程"/>
+</head>
+
+<div class="top" th:fragment="header-fragment">
+    <div class="mall-w1230 top1 mall-clear-fix">
+        <div class="left">
+            <th:block th:unless="${session.mallUser==null}">
+                <em>喵，欢迎光临楼楼商城，
+                    <th:block th:text="${session.mallUser.nickName}"></th:block>
+                </em>
+            </th:block>
+            <th:block th:if="${session.mallUser==null}">
+                <a th:href="@{/index}"><em>喵，欢迎光临楼楼商城</em></a>
+                <a th:href="@{/login}">请登录</a>
+                <a th:href="@{/register}">免费注册</a>
+            </th:block>
+        </div>
+        <div class="right">
+            <ul class="top-r">
+                <li class="" id="user-center">
+                    <a href="">个人中心</a><i class="e-arrow"></i>
+                    <div class="user-center-list drop-down">
+                        <a th:href="@{/personal}">个人中心</a>
+                        <a th:href="@{/orders}">我的订单</a>
+                        <a th:href="@{/logout}">退出登录</a>
+                    </div>
+                </li>
+                <li class="shop-car"><i class="iconfont top-i-color">&#xf0179;&nbsp;</i><a
+                        th:href="@{/shop-cart}">购物车</a></li>
+                <li id="">
+                    <i class="iconfont top-i-color">&#xe620;</i>
+                    <a href="##">手机版</a>
+                </li>
+                <li><a href="##">企业购</a></li>
+                <li class="" id="e-mall">
+                    <a href="">商家支持</a><i class="e-arrow"></i>
+                    <div class="drop-down e-mall">
+                        <dl class="mall-clear-fix">
+                            <dd><a href="##">商家中心</a></dd>
+                            <dd><a href="##">商家入驻</a></dd>
+                            <dd><a href="##">运营服务</a></dd>
+                            <dd><a href="##">商家品控</a></dd>
+                            <dd><a href="##">商家工具</a></dd>
+                            <dd><a href="##">商家规则</a></dd>
+                            <dd><a href="##">楼楼智库</a></dd>
+                            <dd><a href="##">喵言喵语</a></dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="l-search" th:fragment="search-fragment">
+    <a th:href="@{/index}" class="mall-logo" title="上楼楼,就购了!">
+    </a>
+    <div class="mall-w1230">
+        <div class="mall-search mall-clear-fix">
+            <form class="mall-clear-fix" action="##" onsubmit="return false;">
+                <input type="text" name="search-input" id="search-input"
+                       placeholder="楼楼商城 应有尽有"/>
+                <button type="submit" onclick="search()">搜索</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Lmall/header::head-fragment('楼楼商城-商品详情','detail')">
+</head>
+<body>
+<div th:replace="Lmall/header::header-fragment"></div>
+<div th:replace="Lmall/header::search-fragment"></div>
+<div class="goods-context">
+    <div class="context_left">
+        <div class="context_img">
+            <img th:src="@{${goodsDetail.goodsCoverImg}}" class="context_img_main" width="400px" height="400px">
+        </div>
+    </div>
+    <div class="goods_info">
+        <div class="goods_info_name_div">
+            <p class="goods_title" th:text="${goodsDetail.goodsName}">Lmall</p>
+            <span class="goods_intro" th:text="${goodsDetail.goodsIntro}">Lmall</span>
+        </div>
+        <div class="goods_info_main">
+            <div class="detail_ticket">
+                <img th:src="@{/Lmall/img/lmall-detail-ticket.png}">
+                <span>全楼楼商城商品通用</span>
+                <a href="#">去刮券<img th:src="@{/Lmall/img/right.png}"></a>
+            </div>
+            <dl class="goods_price_panel">
+                <dt>原价</dt>
+                <dd><em>¥</em><span><th:block th:text="${goodsDetail.originalPrice}+'.00 元'"></th:block></span></dd>
+            </dl>
+            <dl class="goods_price01_panel">
+                <dt>促销价</dt>
+                <dd><em>¥</em><span><th:block th:text="${goodsDetail.sellingPrice}+'.00 元'"></span></dd>
+            </dl>
+        </div>
+        <ul class="goods_count_info">
+            <li>总销量<span>322</span>
+            </li>
+            <li>累计评价<span>10</span></li>
+            <li class="mall_points">送积分<span>99</span></li>
+        </ul>
+        <dl class="number_info">
+            <dt>数量</dt>
+            <dd>
+                <input type="number" value="1" maxlength="10" title="请输入购买量" class="buy_number">
+                <span class="amount_btn">
+                    <img th:src="@{/Lmall/img/up.png}" class="amount_value_up">
+                    <img th:src="@{/Lmall/img/down.png}" class="amount_value-down">
+                </span>
+                <span class="amount_unit">件</span>
+                <em>库存1000件</em>
+            </dd>
+        </dl>
+        <div class="context_buy">
+            <form method="get" action="#" class="context_buy_form">
+                <input class="buy" type="button" th:onclick="'saveAndGoCart('+${goodsDetail.goodsId}+')'" value="立即购买">
+            </form>
+            <form method="get" action="#" class="context_cart_form">
+                <input class="car" type="button" th:onclick="'saveToCart('+${goodsDetail.goodsId}+')'" value="加入购物车">
+            </form>
+        </div>
+        <div class="context_clear">
+            <span>服务承诺</span>
+            <a href="#">正品保证</a>
+            <a href="#">极速退款</a>
+            <a href="#">七天无理由退换</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="goods_detail_panel">
+    <div class="detail_box">
+        <ul>
+            <li class="tab-selected">
+                <a href="javascript:void(0)">商品详情</a>
+            </li>
+            <li class="comment">
+                <a href="javascript:void(0)">累计评价<span>1</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="w100">
+        <div class="goods_content_main">
+            <div class="goods_title">
+                <p class="goods_title_span">产品名称：<span th:text="${goodsDetail.goodsName}"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="detail_content_div" th:utext="${goodsDetail.goodsDetailContent}">
+    </div>
+</div>
+
+
+<!-- 底部导航栏 -->
+<div th:replace="Lmall/footer::footer-fragment"></div>
+
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<link rel="stylesheet" th:href="@{/admin/plugins/sweetalert/sweetalert.css}"/>
+<script type="text/javascript">
+
+    //数量增加按钮
+    $(".amount_value_up").click(function () {
+        var number = parseInt($(".buy_number").val());
+        //最大数量为10
+        if (number < 10) {
+            number++;
+            $(".buy_number").val(number);
+        }
+    });
+
+    //数量减小按钮
+    $(".amount_value-down").click(function () {
+        var number = parseInt($(".buy_number").val());
+        //最小数量为1
+        if (number > 1) {
+            number--;
+            $(".buy_number").val(number);
+        }
+    });
+
+    /**
+     * 添加到购物车
+     */
+    function saveToCart(id) {
+        var goodsCount = parseInt($(".buy_number").val());
+        if (goodsCount > 10) {
+            swal('数量不能超过10', {
+                icon: "error",
+            });
+        }
+        var data = {
+            "goodsId": id,
+            "goodsCount": goodsCount
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/shop-cart',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    swal("添加成功", {
+                        icon: "success",
+                    });
+                } else {
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+            },
+            error: function () {
+                swal("操作失败", {
+                    icon: "error",
+                });
+            }
+        });
+    }
+
+    /**
+     * 添加到购物车并跳转至购物车页面
+     */
+    function saveAndGoCart(id) {
+        var goodsCount = parseInt($(".buy_number").val());
+        if (goodsCount > 10) {
+            swal('数量不能超过10', {
+                icon: "error",
+            });
+        }
+        var data = {
+            "goodsId": id,
+            "goodsCount": goodsCount
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/shop-cart',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (result) {
+                if (result.resultCode == 200) {
+                    swal({
+                        title: "已将商品加入购物车",
+                        icon: "success",
+                        buttons: {
+                            cancel: "留在当前页",
+                            confirm: "去购物车结算"
+                        },
+                        dangerMode: false,
+                    }).then((flag) => {
+                        if(flag) {
+                            window.location.href = '/shop-cart';
+                        }
+                    }
+                )
+                    ;
+                } else {
+                    swal(result.message, {
+                        icon: "error",
+                    });
+                }
+            },
+            error: function () {
+                swal("操作失败", {
+                    icon: "error",
+                });
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Lmall/header::head-fragment('楼楼商城-支付成功','success')">
+</head>
+<body>
+<div th:replace="Lmall/header::header-fragment"></div>
+<div th:replace="Lmall/header::search-fragment"></div>
+
+<div id="success_content">
+    <div id="success">
+        <p class="p1">亲爱的顾客，你已成功付款</p>
+        <div class="p2">
+            <ul>
+                <li>收货地址：
+                    <th:block th:text="${userAddress}"></th:block>
+                </li>
+                <br>
+                <li>实付款：<span th:text="${'￥'+totalPrice}">￥180.00</span></li>
+                <br>
+            </ul>
+            <p>亲爱的顾客，你可以&nbsp;&nbsp;<a th:href="@{/orders}">查看已买到的宝贝</a>&nbsp;
+                <a th:href="@{/index}">继续购物</a>
+            </p>
+        </div>
+        <div class="p3">
+            <p></p><h5>安全提醒：</h5>下单后，<span>用QQ给你发送链接办理退款的都是骗子！</span>商城不存在系统升级，订单异常等问题，谨防假冒客服电脑诈骗！<p></p><br>
+            <a href="##">安心购物，安全无忧&gt;&gt;</a>
+        </div>
+    </div>
+</div>
+
+<!-- 底部导航栏 -->
+<div th:replace="Lmall/footer::footer-fragment"></div>
+</body>
+</html>
